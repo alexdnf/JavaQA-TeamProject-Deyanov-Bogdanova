@@ -22,14 +22,14 @@ public class SavingAccountTest {
     @Test
     public void NegativeMaxBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(1000, 5000, -10000, 5);
+            new SavingAccount(6000, 5000, -10000, 5);
         });
     }
 
     @Test
     public void NegativeRate() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(1000, 5000, 10000, -5);
+            new SavingAccount(6000, 5000, 10000, -5);
         });
     }
 
@@ -43,7 +43,7 @@ public class SavingAccountTest {
     @Test
     public void MinBalanceMoreMaxBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(1000, 15000, 10000, 5);
+            new SavingAccount(16000, 15000, 10000, 5);
         });
     }
 
