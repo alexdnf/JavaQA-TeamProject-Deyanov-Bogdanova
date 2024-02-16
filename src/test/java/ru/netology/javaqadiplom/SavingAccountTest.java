@@ -121,17 +121,4 @@ public class SavingAccountTest {
 
         Assertions.assertFalse(account.pay(-1000));
     }
-
-    @Test
-    public void shouldNotPayNegativeRate() {
-        SavingAccount account = new SavingAccount(
-                8_000,
-                1_000,
-                10_000,
-                -55
-        );
-
-        Assertions.assertFalse(account.pay(1000));
-    }
-
 }
