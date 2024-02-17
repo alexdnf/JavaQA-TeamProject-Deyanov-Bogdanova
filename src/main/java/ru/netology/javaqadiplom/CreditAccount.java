@@ -23,15 +23,21 @@ public class CreditAccount extends Account {
                     "Накопительная ставка не может быть отрицательной, а у вас: " + rate
             );
         }
-        if (creditLimit <= 0) {
+        if (initialBalance <= 0) {
             throw new IllegalArgumentException(
-                    "Кредитный лимит не может быть отрицательным, а у вас: " + creditLimit
+                    "Начальный баланс не может быть отрицательным, а у вас: " + initialBalance
             );
         }
-        this.balance = initialBalance;
-        this.creditLimit = creditLimit;
-        this.rate = rate;
-    }
+            if (creditLimit <= 0) {
+                throw new IllegalArgumentException(
+                        "Кредитный лимит не может быть отрицательным, а у вас: " + creditLimit
+                );
+            }
+            this.balance = initialBalance;
+            this.creditLimit = creditLimit;
+            this.rate = rate;
+        }
+
 
     /**
      * Операция оплаты с карты на указанную сумму.
