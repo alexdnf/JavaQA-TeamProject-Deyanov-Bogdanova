@@ -47,6 +47,43 @@ public class SavingAccountTest {
         });
     }
 
+
+    @Test
+    public void shouldNotPayMoreThanBalance() {
+        SavingAccount account = new SavingAccount(
+                2_000,
+                1_000,
+                10_000,
+                5
+        );
+
+        Assertions.assertFalse(account.pay(12000));
+    }
+
+    @Test
+    public void shouldPay() {
+        SavingAccount account = new SavingAccount(
+                8_000,
+                1_000,
+                10_000,
+                5
+        );
+
+        Assertions.assertTrue(account.pay(1000));
+    }
+
+    @Test
+    public void shouldNotPayNegativeAmount() {
+        SavingAccount account = new SavingAccount(
+                8_000,
+                1_000,
+                10_000,
+                5
+        );
+
+        Assertions.assertFalse(account.pay(-1000));
+    }
+
     @Test
     public void shouldAddLessThanMaxBalance() {
         SavingAccount account = new SavingAccount(
@@ -84,41 +121,5 @@ public class SavingAccountTest {
         );
 
         Assertions.assertFalse(account.add(-1000));
-    }
-
-    @Test
-    public void shouldNotPayAboveBalance() {
-        SavingAccount account = new SavingAccount(
-                2_000,
-                1_000,
-                10_000,
-                5
-        );
-
-        Assertions.assertFalse(account.pay(12000));
-    }
-
-    @Test
-    public void shouldPay() {
-        SavingAccount account = new SavingAccount(
-                8_000,
-                1_000,
-                10_000,
-                5
-        );
-
-        Assertions.assertTrue(account.pay(1000));
-    }
-
-    @Test
-    public void shouldNotPayNegativeAmount() {
-        SavingAccount account = new SavingAccount(
-                8_000,
-                1_000,
-                10_000,
-                5
-        );
-
-        Assertions.assertFalse(account.pay(-1000));
     }
 }
