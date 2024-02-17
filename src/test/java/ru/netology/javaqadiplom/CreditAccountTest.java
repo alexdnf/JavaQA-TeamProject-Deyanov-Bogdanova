@@ -21,11 +21,12 @@ public class CreditAccountTest {
     @Test
     public void shouldAddToNegativeBalance() {
         CreditAccount account = new CreditAccount(
-                -1000,
+                1000,
                 5_000,
                 15
         );
 
+        account.pay(2000);
         account.add(3_000);
 
         Assertions.assertEquals(2_000, account.getBalance());
@@ -59,10 +60,17 @@ public class CreditAccountTest {
 
     @Test
     public void yearChangeTestIfAccountIsNegative() {
-        CreditAccount account = new CreditAccount(-1_000, 5_000, 15);
+        CreditAccount account = new CreditAccount(1_000, 5_000, 15);
+
+        account.pay(2000);
 
 
         Assertions.assertEquals(-150, account.yearChange());
+    }
+
+    @Test
+    public void creditAccountIfInitBalanceIsNegativeTest() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {new CreditAccount(-1000,5000,15);});
     }
 
     @Test
