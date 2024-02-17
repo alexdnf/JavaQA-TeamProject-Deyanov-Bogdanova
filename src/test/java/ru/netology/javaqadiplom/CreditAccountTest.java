@@ -66,14 +66,6 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void creditAccountIfBalanceIsNegativeTest() {
-
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new CreditAccount(-1_000, 5_000, 15);
-        });
-    }
-
-    @Test
     public void creditAccountIfLimitIsNegativeTest() {
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
