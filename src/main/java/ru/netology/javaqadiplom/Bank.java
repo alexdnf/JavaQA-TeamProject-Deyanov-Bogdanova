@@ -21,8 +21,10 @@ public class Bank {
         if (from.getBalance() < amount) {
             return false;
         }
+        if (to.add(amount) == false) {
+            return false;
+        }
         from.pay(amount);
-        to.add(amount);
         return true;
     }
 }
