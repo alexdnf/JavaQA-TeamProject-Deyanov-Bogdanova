@@ -18,13 +18,12 @@ public class Bank {
         if (amount <= 0) {
             return false;
         }
-        if (from.getBalance() < amount) {
+        if (!from.pay(amount)) {
             return false;
         }
-        if (to.add(amount) == false) {
+        if (!to.add(amount)) {
             return false;
         }
-        from.pay(amount);
         return true;
     }
 }
